@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+    <section id="welcome">
+    <header>
+        <img src="{% static "blog/images/profile.jpg" %}" alt="Alan - The Author Of This Blog" />
+        <h2>Alan's BLOG</h2>
+    </header>
+    <p>I love to blog about tech and the world!</p>
+    </section>
+
+    <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+        {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+    </section>
+
+    <section id='about'>
+    <h2>
+        What I do
+    </h2>
+    <p>
+        I am a quant, i love modelling and I am smart as shit. 
+    </p>
+    </section>
+{% endblock %}
+
+
